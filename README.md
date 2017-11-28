@@ -51,9 +51,9 @@ This program is comprised of these major components:
 
 ### Time
 This program performs in O(n) time, while n is the number of event entries in the log file.
+It reads the log file once to identify all the fault patterns.
 
-This program can also search for multiple different faults in O(n) time, which means that
-we can extend and configure this program to search for a different fault that is represented by another sequence of events besides the fault defined in the current requirement.
+This program can also be easily extended and configured to search for multiple different faults in O(n) time.
 
 ### Space
 
