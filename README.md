@@ -45,7 +45,7 @@ This program is comprised of these major components:
     It informs interested party with the final fault count by resolving a promise, which can be accessed via the counterCompletes method.
 
 1. Application entry point (index.js)
-    The application start with assemble paser with event counter, create a read stream from the user specified file and kick of the processing.
+    The application starts with assembling paser with an event counter, it then create a read stream from the user specified file and kick of the processing.
 
 ## Performance of this Program
 
