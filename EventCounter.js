@@ -11,14 +11,9 @@ class EventCounter extends EventEmitter{
   constructor(){
     super();
     /**
-     * Example of fault parser collection object.
-     * Key is the unique id of the fault we are looking for.
-     * Value is an instance of the parser that is designed to find this fault.
-     * 
      * At the moment, we have only looking for one type of fault.
      * {
-     *  'HVAC-CIRCUIT-FAILURE': [Object parser],
-     *  'MOTOR-MALFUNCTION': [Object parser]
+     *  'HVAC-10': [Object parser],
      * }
      */
     this.faultParserCol = {};
@@ -27,9 +22,7 @@ class EventCounter extends EventEmitter{
      * Example of fault count object, key is the unique id of the fault we are looking for.
      * At the moment, we only have one type of fault that is identified by device id.
      * {
-     *  'deviceID': 20,
-     *  'HVAC-CIRCUIT-FAILURE': 9,
-     *  'MOTOR-MALFUNCTION': 0
+     *  'HVAC-10': 20,
      * }
      */
     this.faultCount = {};
@@ -49,7 +42,9 @@ class EventCounter extends EventEmitter{
     this.faultCount[parser.id] = 0;
 
     parser.addListener(parser.id, (data)=>{
+      //update fault count for a device id
       this.faultCount[parser.id]++;
+
       process.stdout.clearLine();
       process.stdout.cursorTo(0);
       process.stdout.write(`In progress, current fault count for device id '${data.deviceID}': ${this.faultCount[parser.id]}.    `);
@@ -98,6 +93,10 @@ class EventCounter extends EventEmitter{
   }
 
   /**
+   * Invoke this method in conjunction with counterCompletes method.
+   * 
+   * Invoking this method on may product a transient fault count value.
+   * 
    * According to the requirement doc, this method should
    * "Gets the number of “fault” sequences observed for the given device".
    */
@@ -105,6 +104,10 @@ class EventCounter extends EventEmitter{
     return this.faultCount[deviceID];
   }
 
+  /**
+   * Returns a promise, which gets resolved
+   * after the file processing completes. 
+   */
   counterCompletes(){
     return this.counterCompletesPromise;
   }

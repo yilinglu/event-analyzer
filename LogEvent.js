@@ -13,7 +13,7 @@ class LogEvent {
   constructor(deviceID, timeStamp, stage){
     this.deviceID = deviceID;
     this.timeStamp = !!timeStamp? timeStamp.trim() : '';
-    this.stage = !!stage? stage+''.trim() : '';
+    this.stage = !!stage? (stage + '').trim() : '';
   }
 
 }

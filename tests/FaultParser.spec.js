@@ -110,4 +110,34 @@ describe('FaultParser', function() {
     expect(result.deviceID).to.be.equal(testDevice);
   });    
 
+  it("should identify a fault pattern", function(){
+    let testDevice = 'HVAC-Unit';
+    const parser = new FaultParser(testDevice);
+    let result;
+    parser.addListener(testDevice, (data)=>{
+      result = data;
+    });
+    const stage2Evt = new LogEvent(testDevice, '2011-03-07 06:25:32', '2');
+    parser.processEvent(stage2Evt);
+    expect(parser.state.stage).to.be.equal('initial');
+
+    const stage3Evt = new LogEvent(testDevice, '2011-03-07 09:15:55', '3');
+    parser.processEvent(stage3Evt);
+    expect(parser.state.stage).to.be.equal('3');
+
+    const stage3Evt_1 = new LogEvent(testDevice, '2011-03-07 09:25:55', '3');
+    parser.processEvent(stage3Evt_1);
+    expect(parser.state.stage).to.be.equal('3');
+
+    const stage2Evt_1 = new LogEvent(testDevice, '2011-03-07 09:30:55', '2');
+    parser.processEvent(stage2Evt_1);
+    expect(parser.state.stage).to.be.equal('2');
+
+    const stage0Evt = new LogEvent(testDevice, '2011-03-07 20:23:01', '0');
+    parser.processEvent(stage0Evt);
+    expect(parser.state.stage).to.be.equal('initial');
+    
+    expect(result.deviceID).to.be.equal(testDevice);
+    
+  });
 });
