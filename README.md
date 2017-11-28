@@ -57,9 +57,10 @@ This program can also be easily extended and configured to search for multiple d
 
 ### Space
 
-Memory and Disk Usage
-Due to use of stream in reading log files, the memory footprint of this program remains constant 
-independent of the size of the log files processes. 
+#### Memory and Disk Usage
+Due to the use of stream in reading log files and fixed space requirement of the application algorithm, the memory footprint of this program remains at a fix level 
+independent of the size of the log files processes.
+ 
 This program does not need extra disk storage space to perform its file process/analysis.
 
 ### Memory Usage Statistics
