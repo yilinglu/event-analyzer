@@ -51,7 +51,7 @@ This program is comprised of these major components:
 
 ### Time
 This program performs in O(n) time, while n is the number of event entries in the log file.
-It reads the log file once to identify all the fault patterns.
+It reads the log file once to identify all the fault patterns, the algorithm in FaultParser performs in O(n).
 
 This program can also be easily extended and configured to search for multiple different faults in O(n) time.
 
