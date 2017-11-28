@@ -3,7 +3,7 @@
 ### Nodejs 
 Install the latest [Node](https://nodejs.org/en/) with version >= 9.0.
 
-This program is developed and tested on Node 9.2.0, tested on Node 9.2.0.
+This program is developed and tested on Node 9.2.0.
 
 ## Unit Testing
 Run `npm test` to execute all unit tests, all tests should pass before proceeding to next steps.
