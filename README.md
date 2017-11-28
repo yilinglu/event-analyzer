@@ -9,10 +9,10 @@ This program is developed and tested on Node 9.2.0.
 Run `npm test` to execute all unit tests, all tests should pass before proceeding to next steps.
 
 ## Run this Application
-Open up a terminal window, go to the root directory where this readme.md file and index.js file resides.
+Open a terminal window, go to project root directory where this readme.md file resides.
 
 1. Type `node index.js HVAC-9 event-log-example.txt`,
-You can expect to see output like this, the program should 2 faults found in the log file.
+You can expect to see output like the following. The app should report 2 faults found in the log file.
 ```
 Processing file 'event-log-example.txt' for device 'HVAC-9'
 In progress, current fault count for device id 'HVAC-9': 2.
