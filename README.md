@@ -1,4 +1,4 @@
-# Event Analyzer - Finding Faulty Event Patterns Fast!
+# Event Analyzer - Finding All Faulty Event Patterns Fast!
 ## Prerequisite
 ### Nodejs 
 Install the latest [Node](https://nodejs.org/en/) with version >= 9.0.
